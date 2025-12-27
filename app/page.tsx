@@ -36,10 +36,10 @@ const Page = () => {
       </section>
 
       <section className='home-section'>
-        <CompanionList 
-          title="Recent Completed Sessions"
-          companions={recentSessions}
-          classNames= "w-2/3 max-lg:w-full"
+        <CompanionList
+            title="Recent Completed Sessions"
+            companions={recentSessions}
+            classNames="w-2/3 max-lg:w-full"
         />
         <CTA />
       </section>
