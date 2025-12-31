@@ -77,7 +77,7 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
         clientMessages: ['transcript'],
         serverMessages: [],
     }
-    //@ts-expect-error 
+    //@ts-expect-error Due to assistantOverride
     vapi.start(configureAssistant(voice, style), assistantOverrides);
   }
 
