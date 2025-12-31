@@ -35,7 +35,7 @@ export const getAllCompanions = async ({ limit= 10, page = 1, subject, topic }: 
   }
   query = query.range((page-1) * limit, page*limit-1);
 
-  const { data:companions,  error } = await query;
+  const { data: companions,  error } = await query;
   
   if(error) throw new Error(error.message);
 
@@ -106,3 +106,36 @@ export const getUserCompanions = async (userId: string) => {
 
   return data;
 };
+
+export const newCompanionPermissions = async() => {
+  const { userId , has } = await auth();
+  const supabase = createSupabaseClient();
+
+  let limit = 0;
+
+  if(has({plan: 'pro'})) {
+    return true;
+  }
+  else if(has({feature: '3_companion_limit'})){
+    limit = 3;
+  }
+  else if(has({feature: '10_companion_limit'})) {
+    limit = 10;
+  }
+
+  const { data, error} = await supabase
+    .from('companions')
+    .select('id',{count: 'exact'})
+    .eq('author',userId)
+
+  if(error) throw new Error(error.message);
+
+  const companionCount = data?.length;
+
+  if(companionCount >= limit){
+    return false;
+  }
+  else {
+    return true;
+  }
+}
