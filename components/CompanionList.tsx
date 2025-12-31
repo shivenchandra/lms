@@ -18,9 +18,9 @@ interface CompanionListsProps {
   classNames?: string;
 }
 
-const CompanionList = ( { title, companions, classNames }: CompanionListsProps) => {
+const CompanionList = ({ title, companions, classNames }: CompanionListsProps) => {
   return (
-    <article className={cn('companion-list',classNames)}>
+    <article className={cn('companion-list', classNames)}>
       <h2 className="text-3xl font-bold">Recent Sessions</h2>
 
       <Table>
@@ -32,16 +32,16 @@ const CompanionList = ( { title, companions, classNames }: CompanionListsProps) 
           </TableRow>
         </TableHeader>
         <TableBody>
-          {companions?.map(({id,subject,name,topic,duration}) => (
-            <TableRow key={id}>
+          {companions?.map(({ id, subject, name, topic, duration }, index) => (
+            <TableRow key={`${id}-${index}`}>
               <TableCell>
-                <Link href={'/companions/${id}'}>
+                <Link href={`/companions/${id}`}>
                   <div className="flex items-center gap-2">
-                    <div className="size-[60px] flex items-center justify-center rounded-lg max-md:hidden" style={{backgroundColor: getSubjectColor(subject)}}>
-                      <Image 
-                        src={`/icons/${subject}.svg`} 
-                        alt={subject} 
-                        width={35} 
+                    <div className="size-[60px] flex items-center justify-center rounded-lg max-md:hidden" style={{ backgroundColor: getSubjectColor(subject) }}>
+                      <Image
+                        src={`/icons/${subject}.svg`}
+                        alt={subject}
+                        width={35}
                         height={35} />
                     </div>
                     <div className="flex flex-col gap-2">
@@ -59,11 +59,11 @@ const CompanionList = ( { title, companions, classNames }: CompanionListsProps) 
                 <div className="subject-badge w-fit max-md:hidden">
                   {subject}
                 </div>
-                <div className="flex items-center justify-center rounded-lg w-fit p-2 md:hidden" style={{backgroundColor: getSubjectColor(subject)}}>
-                  <Image 
-                    src={`/icons/${subject}.svg`} 
+                <div className="flex items-center justify-center rounded-lg w-fit p-2 md:hidden" style={{ backgroundColor: getSubjectColor(subject) }}>
+                  <Image
+                    src={`/icons/${subject}.svg`}
                     alt={subject}
-                    width={18} 
+                    width={18}
                     height={18} />
                 </div>
               </TableCell>
@@ -73,11 +73,11 @@ const CompanionList = ( { title, companions, classNames }: CompanionListsProps) 
                     {duration}
                     <span className="max-md:hidden">mins</span>
                   </p>
-                  <Image 
-                    src="/icons/clock.svg" 
-                    alt="duration" 
-                    width={14} 
-                    height={14} 
+                  <Image
+                    src="/icons/clock.svg"
+                    alt="duration"
+                    width={14}
+                    height={14}
                   />
                 </div>
               </TableCell>
