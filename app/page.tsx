@@ -5,6 +5,8 @@ import { recentSessions } from '@/constants'
 import { getAllCompanions, getRecentSessions } from '@/lib/actions/companions.actions'
 import { getSubjectColor } from '@/lib/utils'
 import React from 'react'
+export const dynamic = "force-dynamic";
+
 
 const Page = async() => {
     const companion = await getAllCompanions({ limit:3 })
