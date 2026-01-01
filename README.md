@@ -18,7 +18,7 @@ The goal of this project was to understand:
 4) Scalable frontend and backend integration
 
 This repository represents my hands-on implementation of these concepts.
-## Features
+## 🔋Features
 
 - AI Voice Tutors 
 - Authentication & User Management 
@@ -73,7 +73,7 @@ Install Dependencies
 ```bash
   npm install
 ```
-## Environment Variables
+## 🔐Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
 ```bash
@@ -96,7 +96,7 @@ SENTRY_AUTH_TOKEN=
 ```
 
 
-## Run the Project
+## 🚀Run the Project
 
 
 ```bash
@@ -104,7 +104,7 @@ SENTRY_AUTH_TOKEN=
 ```
 
 
-## License
+## 📜License
 
 This project is intended for educational use only.
 
